@@ -1,9 +1,7 @@
 <div class="todos-container">
   <!-- Top section -->
   <div class="top-bar">
-    <div class="left-side">
-      Sept. 18, 2016
-    </div>
+    <div class="left-side">{{todayDate}}</div>
     <div class="right-side">
       <input type="text" placeholder="search" />
       <i class="fa fa-search" aria-hidden="true"></i>
@@ -32,7 +30,7 @@
         <span class="task" *ngFor="let task of todos.todo" (dragstart)="drag($event, 'todo', task.id)" draggable="true">
           <div class="title">{{task.title}}</div>
           <div class="ago">
-            <span>{{task.ago}}</span>
+            <span>{{getAgo(task.created)}}</span>
           </div>
         </span>
       </div>
@@ -41,7 +39,7 @@
         <span class="task" *ngFor="let task of todos.progress" (dragstart)="drag($event, 'progress', task.id)" draggable="true">
           <div class="title">{{task.title}}</div>
           <div class="ago">
-            <span>{{task.ago}}</span>
+            <span>{{getAgo(task.created)}}</span>
           </div>
         </span>
       </div>
@@ -50,7 +48,7 @@
         <span class="task" *ngFor="let task of todos.done" (dragstart)="drag($event, 'done', task.id)" draggable="true">
           <div class="title">{{task.title}}</div>
           <div class="ago">
-            <span>{{task.ago}}</span>
+            <span>{{getAgo(task.created)}}</span>
           </div>
         </span>
       </div>

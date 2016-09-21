@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as moment from 'moment/moment';
 
 @Component({
   moduleId: module.id,
@@ -7,27 +8,35 @@ import { Component } from '@angular/core';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent {
+
+  get todayDate(): string {
+    return moment().format('MMMM DD YYYY');
+  }
+
   todos = {
     'todo': [
       {
         id: 1,
         title: 'Design TODO app with MEAN stack',
         ago: '3d ago',
-        created: '',
+        created: '20160918',
+        dueDate: '',
         tags: ['design']
       },
       {
         id: 2,
         title: 'Build HTML/CSS for the template',
         ago: '2d ago',
-        created: '',
+        created: '20160920',
+        dueDate: '',
         tags: []
       },
       {
         id: 3,
         title: 'Implement Component and data service',
         ago: '1d ago',
-        created: '',
+        created: '20160901',
+        dueDate: '',
         tags: []
       }
     ],
@@ -36,7 +45,8 @@ export class TodosComponent {
         id: 5,
         title: 'Implement Component and data service',
         ago: '1d ago',
-        created: '',
+        created: '20160919',
+        dueDate: '',
         tags: []
       }
     ],
@@ -48,11 +58,16 @@ export class TodosComponent {
       id: 4,
       title: 'New Added title',
       ago: 'now',
-      created: '',
+      created: '20160921',
+      dueDate: '',
       tags: []
     };
 
     this.todos[type].push(task);
+  }
+
+  getAgo(d: string): string {
+    return moment(d, 'YYYYMMDD').fromNow();
   }
 
   allowDrop(event: any): void {

@@ -1,9 +1,9 @@
 {
-  "name": "angular2-seed",
+  "name": "angular2-todo",
   "version": "0.0.0",
-  "description": "Modular seed project for Angular 2 apps with fast, statically typed build",
+  "description": "A sample Todo application based on Angular 2 and TypeScript",
   "repository": {
-    "url": "https://github.com/mgechev/angular2-seed"
+    "url": "https://github.com/david-lee/ng2-seed"
   },
   "scripts": {
     "build.dev": "gulp build.dev --color --config-env dev",
@@ -87,7 +87,9 @@
     "karma-coverage": "^1.1.0",
     "karma-jasmine": "~1.0.2",
     "karma-mocha-reporter": "^2.0.4",
+    "lodash": "^4.16.1",
     "merge-stream": "^1.0.0",
+    "moment": "^2.15.0",
     "open": "0.0.5",
     "postcss-reporter": "^1.4.1",
     "protractor": "^3.3.0",
