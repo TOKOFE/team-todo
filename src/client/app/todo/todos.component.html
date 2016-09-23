@@ -44,7 +44,7 @@
         </span>
       </div>
 
-      <div class="done-list">
+      <div class="done-list" (drop)="drop($event, 'done')" (dragover)="allowDrop($event)" >
         <span class="task" *ngFor="let task of todos.done" (dragstart)="drag($event, 'done', task.id)" draggable="true">
           <div class="title">{{task.title}}</div>
           <div class="ago">
