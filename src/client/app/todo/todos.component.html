@@ -1,0 +1,57 @@
+<div class="todos-container">
+  <!-- Top section -->
+  <div class="top-bar">
+    <div class="left-side">{{todayDate}}</div>
+    <div class="right-side">
+      <input type="text" placeholder="search" />
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </div>
+  </div>
+
+  <!-- todos section -->
+  <div class="todo-section">
+    <div class="header">
+      <div class="todo-col">
+        <i class="fa fa-list-ul" aria-hidden="true"></i>
+        <span>Todo</span>
+        <i class="fa fa-plus-circle add" aria-hidden="true" (click)="addTask()"></i>
+      </div>
+      <div class="in-progress-col">
+        <i class="fa fa-tasks" aria-hidden="true"></i>
+        <span>In Progress</span>
+      </div>
+      <div class="done-col">
+        <i class="fa fa-check" aria-hidden="true"></i>
+        <span>Done</span>
+      </div>
+    </div>
+    <div class="list">
+      <div class="todo-list" (drop)="drop($event, 'todo')" (dragover)="allowDrop($event)">
+        <span class="task" *ngFor="let task of todos.todo" (dragstart)="drag($event, 'todo', task.id)" draggable="true">
+          <div class="title">{{task.title}}</div>
+          <div class="ago">
+            <span>{{getAgo(task.created)}}</span>
+          </div>
+        </span>
+      </div>
+
+      <div class="in-progress-list" (drop)="drop($event, 'progress')" (dragover)="allowDrop($event)">
+        <span class="task" *ngFor="let task of todos.progress" (dragstart)="drag($event, 'progress', task.id)" draggable="true">
+          <div class="title">{{task.title}}</div>
+          <div class="ago">
+            <span>{{getAgo(task.created)}}</span>
+          </div>
+        </span>
+      </div>
+
+      <div class="done-list" (drop)="drop($event, 'done')" (dragover)="allowDrop($event)" >
+        <span class="task" *ngFor="let task of todos.done" (dragstart)="drag($event, 'done', task.id)" draggable="true">
+          <div class="title">{{task.title}}</div>
+          <div class="ago">
+            <span>{{getAgo(task.created)}}</span>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
