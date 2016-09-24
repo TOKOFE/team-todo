@@ -8,6 +8,7 @@ Task management for Teams
 git clone 'your-forked-repository'
 cd team-todo
 npm install
+npm start
 ```
 
 - After installing all packages, download Font Awesome from the website; [Font Awesome](http://fontawesome.io/)
