@@ -10,7 +10,7 @@ import * as moment from 'moment/moment';
 export class TodosComponent {
 
   get todayDate(): string {
-    return moment().format('MMMM DD YYYY');
+    return moment().format('MMMM DD, YYYY');
   }
 
   todos = {
