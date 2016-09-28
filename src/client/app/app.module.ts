@@ -7,12 +7,20 @@ import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 
 import { AboutModule } from './about/about.module';
-import { HomeModule } from './home/home.module';
 import { TodosModule } from './todo/todos.module';
 import { SharedModule } from './shared/shared.module';
+import {HomeModule} from './home/home.module';
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), AboutModule, HomeModule, TodosModule, SharedModule.forRoot()],
+  imports: [
+    BrowserModule,
+    HttpModule,
+    RouterModule.forRoot(routes),
+    HomeModule,
+    AboutModule,
+    TodosModule,
+    SharedModule.forRoot()
+  ],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,

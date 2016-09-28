@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as moment from 'moment/moment';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -9,49 +10,20 @@ import * as moment from 'moment/moment';
 })
 export class TodosComponent {
 
+  todos: any = {};
+
   get todayDate(): string {
     return moment().format('MMMM DD, YYYY');
   }
 
-  todos = {
-    'todo': [
-      {
-        id: 1,
-        title: 'Design TODO app with MEAN stack',
-        ago: '3d ago',
-        created: '20160918',
-        dueDate: '',
-        tags: ['design']
-      },
-      {
-        id: 2,
-        title: 'Build HTML/CSS for the template',
-        ago: '2d ago',
-        created: '20160920',
-        dueDate: '',
-        tags: []
-      },
-      {
-        id: 3,
-        title: 'Implement Component and data service',
-        ago: '1d ago',
-        created: '20160901',
-        dueDate: '',
-        tags: []
-      }
-    ],
-    'progress': [
-      {
-        id: 5,
-        title: 'Implement Component and data service',
-        ago: '1d ago',
-        created: '20160919',
-        dueDate: '',
-        tags: []
-      }
-    ],
-    'done': []
-  };
+  constructor(public router: Router, public route: ActivatedRoute) {
+  }
+
+  ngOnInit(): void {
+    this.route.data.forEach((data: any) => {
+      this.todos = data.todos;
+    });
+  }
 
   addTask(type? = 'todo'): void {
     let task = {
